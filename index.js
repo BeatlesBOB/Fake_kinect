@@ -22,9 +22,9 @@ const onConnection = (socket) => {
     // socket.on("disconnect", disconnect);
     // socket.on("move", move);
     // socket.on("touch", touch);
-    // socket.on("faker:move", move);
+    socket.on("faker:move", move);
     socket.on("faker:touch", fakerTouch);
-    socket.on("faker:fuck", fakerFuck);
+    // socket.on("faker:fuck", fakerFuck);
 }
   
 io.on("connection", onConnection);
