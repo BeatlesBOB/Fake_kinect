@@ -2,6 +2,7 @@
 // const Kinect2 = require('kinect2');
 // const kinect = new Kinect2();
 const { createServer } = require("http");
+var PORT = process.env.PORT || 5000;
 
 const httpServer = createServer();
 
@@ -16,7 +17,7 @@ const io = require("socket.io")(httpServer, {
 // const {move} = require("./tools/move")(io,kinect);
 // const {touch} = require("./tools/touch")(io,kinect);
 const {fakerTouch} = require("./faker/touch")(io);
-const {fakerFuck} = require("./faker/fuck")(io);
+const {fakerMove} = require("./faker/move")(io);
 
 const onConnection = (socket) => {
     // socket.on("disconnect", disconnect);
@@ -29,5 +30,5 @@ const onConnection = (socket) => {
   
 io.on("connection", onConnection);
 
-io.listen(3000);
+io.listen(PORT);
 
